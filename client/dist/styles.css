@@ -1,0 +1,181 @@
+body {
+  background-image:
+    url('https://lirp-cdn.multiscreensite.com/bef38536/dms3rep/multi/opt/shutterstock_660628939-1920w.jpg');
+  background-size: cover;
+  background-repeat: repeat-y;
+  color: #cdcdcd;
+  font-size: 3rem;
+}
+
+#app {
+  background-color: rgba(0,0,0,0.8);
+  margin: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.allergies {
+  text-align: center;
+  border-bottom: 2px solid #cdcdcd;
+  border-top: 2px solid #cdcdcd;
+  padding: 1rem;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 80%;
+  background-color: #000;
+  color: #cdcdcd;
+  padding: 2.5rem;
+}
+
+.modal-header, .modal-footer {
+  padding: 10px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-body {
+  max-height: 70vh;
+  overflow-y: scroll;
+  padding: 10px;
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+}
+
+.i-entry input{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 4px;
+  outline: none;
+}
+
+.e-selected {
+  font-weight: 700;
+}
+
+.list-type {
+  margin-top: 3rem;
+  border-bottom: 2px solid #cdcdcd;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0;
+  align-items: center;
+}
+
+.menu-buttons span {
+  border: 1px solid #cdcdcd;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.modal-close {
+  border: 1px solid #cdcdcd;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.detail-img {
+  max-width: 50%;
+  max-height: 30vh;
+}
+
+.ingre-container {
+  padding: 1rem 0;
+  border-top: 1px solid #cdcdcd;
+}
+
+.icon {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.icon-container {
+  display: flex;
+}
+
+.a-icon {
+  background-color: yellow;
+}
+
+.r-icon {
+  background-color: rgb(115, 115, 200);
+}
+
+.d-icon {
+  background-color: #30a76d;
+}
+
+.one-icon {
+  background-color: #d69292;
+}
+
+.h-icon {
+  background-color: #9466cc;
+}
+
+.star {
+  color: #b7b770;
+}
+
+.question-icon {
+  background-color: blue;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  color: white;
+  font-size: 3rem;
+  border: 3px solid;
+  margin: 1rem;
+}
+
+.helper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.helper .modal-body {
+  border-bottom: none;
+}
+
+.desc-container {
+  display: flex;
+  margin: 2rem 0;
+}
+
+.close-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-button img {
+  width: 5rem;
+}
