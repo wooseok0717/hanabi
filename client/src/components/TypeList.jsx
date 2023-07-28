@@ -3,7 +3,7 @@ import axios from 'axios';
 import ListEntry from './ListEntry.jsx';
 import {capitalize} from './helperfn';
 
-export default function TypeList ({type}) {
+export default function TypeList ({type, currentType, setCurrentType}) {
 
   const [currentList, setCurrentList] = useState([]);
 
@@ -11,15 +11,22 @@ export default function TypeList ({type}) {
     axios.get(`api/recipesWithType/?id=${type.id}`)
     .then(({data}) => {
       setCurrentList(data);
-      // console.log(data);
     });
   },[]);
 
+  const handleSelection = (name) => {
+    if (currentType === type.name) {
+      setCurrentType('');
+    } else {
+      setCurrentType(name);
+    }
+  }
+
   return (
     <div>
-      <div className='list-type'>{capitalize(type.name)}</div>
-      {currentList.map(menu => (
-        <ListEntry menu={menu}/>
+      <div className='list-type' onClick={() => handleSelection(type.name)}>{capitalize(type.name)}</div>
+      {(currentType === type.name) && currentList.map(menu => (
+        <ListEntry key={menu.id} menu={menu}/>
       ))}
     </div>
   )

@@ -5,15 +5,18 @@ import TypeList from './TypeList.jsx';
 export default function MenuList () {
 
   const [types, setTypes] = useState([]);
+  const [currentType, setCurrentType] = useState('');
 
   useEffect(() => {
     axios.get('api/types')
-    .then(({data}) => setTypes(data));
+    .then(({data}) => {
+      setTypes(data);
+    });
   },[])
 
   return (
     <div>
-      {types.map(t => (<TypeList key={t.id} type={t}/>))}
+      {types.map(t => (<TypeList key={t.id} type={t} currentType={currentType} setCurrentType={setCurrentType} />))}
     </div>
   )
 }
