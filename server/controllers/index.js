@@ -23,4 +23,8 @@ module.exports = {
     axios.get(`${baseURL}/api/recipe/?id=${req.query.id}`)
     .then(({data}) => res.send(data));
   },
+  addImg: (req, res) => {
+    axios.post(`${baseURL}/api/image`, req.body)
+    .then(({data}) => res.send(data));
+  }
 }

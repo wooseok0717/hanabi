@@ -15,4 +15,6 @@ router.put(`/rating`, controllers.rateAMenu);
 
 router.get('/recipe', controllers.getRecipe);
 
+router.post('/img', controllers.addImg);
+
 module.exports = router;

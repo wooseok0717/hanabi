@@ -192,3 +192,22 @@ body {
 .detail-title {
   margin: 0;
 }
+
+.img-upload-button {
+  margin: 2rem;
+  padding: 1rem;
+  border: 1px solid #cdcdcd;
+  text-align: center;
+  border-radius: 3rem;
+}
+
+.file-upload {
+  font-size: 3rem;
+}
+
+.file-upload-btn {
+  padding: 2rem;
+  border: 1px solid;
+  text-align: center;
+  margin: 1rem;
+}

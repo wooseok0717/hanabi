@@ -3,6 +3,7 @@ import {capitalize, getAverageRating} from './helperfn';
 import SpicyLevel from './SpicyLevel.jsx';
 import StarRating from './StarRating.jsx';
 import MenuHelper from './MenuHelper.jsx';
+import CloudinaryImageUpload from './CloudinaryImageUpload.jsx';
 import x from '../../dist/assets/x.png';
 
 export default function MenuDetails ({closeModal, item}) {
@@ -12,6 +13,7 @@ export default function MenuDetails ({closeModal, item}) {
   const [filteredOutside, setFilteredOutside] = useState([]);
   const [filteredSauce, setFilteredSauce] = useState([]);
   const [displayHelper, setDisplayHelper] = useState(false);
+  const [imgModal, setImgModal] = useState(false);
 
   useEffect(() => {
     const all = [...item.inside, ...item.outside, ...item.sauce];
@@ -54,6 +56,8 @@ export default function MenuDetails ({closeModal, item}) {
         </div>
         <div className='modal-body'>
           {item.img ? <img className='detail-img' src={item.img} /> : `This menu doesn't have a image set yet` }
+          <div className='img-upload-button' onClick={() => setImgModal(true)}>Contribute with your image?</div>
+          {imgModal && <CloudinaryImageUpload closeModal={() => setImgModal(false)} item={item}/>}
           <div className='ingre-container'>
             {item.inside.length ? (
               <div>
