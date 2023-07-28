@@ -13,7 +13,7 @@ export default function App() {
 
     <>
       <Header />
-      <div className='allergies' onClick={() => setAllergies(true)}>If you have allergies click here</div>
+      <div className='allergies' onClick={() => setAllergies(true)}>Set your allergies</div>
       {allergies && (<AllergyModal closeModal={() => setAllergies(false)}/>)}
       <div className='helper'>
         <button className='question-icon' onClick={() => setDisplayHelper(true)}>?</button>

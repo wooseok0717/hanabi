@@ -19,10 +19,6 @@ export default function AllergyModal ({closeModal}) {
     .then(({data}) => setIngredients(data.map(x => x.name)));
   },[])
 
-  const handleClick = () => {
-    localStorage.map()
-  }
-
   return (
     <div className='modal'>
       <div className='modal-content'>

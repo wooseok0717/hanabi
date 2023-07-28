@@ -11,4 +11,8 @@ router.get('/types', controllers.getTypes);
 
 router.get('/recipesWithType', controllers.getMenuByType);
 
+router.put(`/rating`, controllers.rateAMenu);
+
+router.get('/recipe', controllers.getRecipe);
+
 module.exports = router;
