@@ -11,7 +11,7 @@ export default function TypeList ({type}) {
     axios.get(`api/recipesWithType/?id=${type.id}`)
     .then(({data}) => {
       setCurrentList(data);
-      console.log(data);
+      // console.log(data);
     });
   },[]);
 

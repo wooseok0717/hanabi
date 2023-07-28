@@ -9,7 +9,7 @@ const StarRating = ({ rating }) => {
 
   return (
     <>
-      {Array.from({ length: maxStars }, (_, index) => (
+      {rating}{Array.from({ length: maxStars }, (_, index) => (
         <span key={index} className='star'>
           {index < filledStars ? '★' : '☆'}
         </span>

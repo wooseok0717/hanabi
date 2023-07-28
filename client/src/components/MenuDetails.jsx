@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {capitalize} from './helperfn';
+import {capitalize, getAverageRating} from './helperfn';
 import SpicyLevel from './SpicyLevel.jsx';
 import StarRating from './StarRating.jsx';
+import MenuHelper from './MenuHelper.jsx';
+import x from '../../dist/assets/x.png';
 
 export default function MenuDetails ({closeModal, item}) {
 
@@ -9,6 +11,7 @@ export default function MenuDetails ({closeModal, item}) {
   const [filteredInside, setFilteredInside] = useState([]);
   const [filteredOutside, setFilteredOutside] = useState([]);
   const [filteredSauce, setFilteredSauce] = useState([]);
+  const [displayHelper, setDisplayHelper] = useState(false);
 
   useEffect(() => {
     const all = [...item.inside, ...item.outside, ...item.sauce];
@@ -26,11 +29,18 @@ export default function MenuDetails ({closeModal, item}) {
     <div className='modal'>
       <div className='modal-content'>
         <div className='modal-header'>
-          <h3>{capitalize(item.name)}</h3>
+          <div className='close-button'>
+            <img src={x} onClick={closeModal}/>
+          </div>
+          <h3 className='detail-title'>{capitalize(item.name)}</h3>
+          <div className='helper'>
+            <button className='question-icon' onClick={() => setDisplayHelper(true)}>?</button>
+            {displayHelper && <MenuHelper closeModal={() => setDisplayHelper(false)}/>}
+          </div>
           <div>
             ${item.price}
           </div>
-          <StarRating rating={4}/>
+          <StarRating rating={getAverageRating(item.ratings)}/>
           <SpicyLevel level={item.spicy} />
           <div>
           <div className='icon-container'>
@@ -89,11 +99,6 @@ export default function MenuDetails ({closeModal, item}) {
               </div>
             </div>
           ): null}
-        </div>
-        <div className='modal-footer'>
-          <span className='modal-close' onClick={closeModal}>
-            Close
-          </span>
         </div>
       </div>
     </div>

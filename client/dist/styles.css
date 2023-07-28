@@ -179,3 +179,11 @@ body {
 .close-button img {
   width: 5rem;
 }
+
+.detail-title {
+  margin: 0;
+}
+
+.rating-modal {
+  top: 40%;
+}
