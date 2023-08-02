@@ -211,3 +211,12 @@ body {
   text-align: center;
   margin: 1rem;
 }
+
+.instruction-container > div{
+  margin: 2rem 1rem;
+}
+
+.do-not-show-btn {
+  font-weight: 700;
+  color: red;
+}

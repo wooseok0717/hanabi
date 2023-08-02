@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { CloudinaryContext, Image } from 'cloudinary-react';
 import axios from 'axios';
 import x from '../../dist/assets/x.png';
+import ImageDirection from './ImageDirection.jsx';
 
 export default function CloudinaryImageUpload ({closeModal, item}) {
 
   const [imageUrl, setImageUrl] = useState('');
+  const [readInfo, setReadInfo] = useState(localStorage.readInfo);
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -48,6 +50,7 @@ export default function CloudinaryImageUpload ({closeModal, item}) {
           <h3>Add a image for {item.name}</h3>
         </div>
         <div className='modal-body'>
+          {!readInfo && <ImageDirection closeModal={() => setReadInfo(true)}/>}
           {imageUrl ? (
             <CloudinaryContext cloudName="your_cloud_name">
               <Image publicId={imageUrl} width="400" crop="scale" />

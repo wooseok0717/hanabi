@@ -2,11 +2,13 @@ import React, {useState} from 'react';
 import {capitalize} from './helperfn';
 import x from '../../dist/assets/x.png';
 import axios from 'axios';
+import RatingInstruction from './RatingInstruction.jsx';
 
 export default function RatingModal ({item, closeModal, totalStars=5, updateCurrentMenu}) {
 
   const [initialRating, setInitialRating] = useState(localStorage[item.name + ' rating']);
   const [rating, setRating] = useState(initialRating);
+  const [ratingIns, setRatingIns] = useState(localStorage.ratingIns);
 
   const handleStarClick = (clickedRating) => {
     setRating(clickedRating);
@@ -37,6 +39,7 @@ export default function RatingModal ({item, closeModal, totalStars=5, updateCurr
           <h3 className='detail-title'>{`Rate "${capitalize(item.name)}"?`}</h3>
         </div>
         <div className='modal-body'>
+          {!ratingIns && <RatingInstruction closeModal={() => setRatingIns(true)} />}
           <div>
             {[...Array(totalStars)].map((_, index) => {
               const starValue = index + 1;
