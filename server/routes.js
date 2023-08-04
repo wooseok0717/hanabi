@@ -17,4 +17,6 @@ router.get('/recipe', controllers.getRecipe);
 
 router.post('/img', controllers.addImg);
 
+router.get('/search', controllers.search);
+
 module.exports = router;
