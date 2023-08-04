@@ -27,7 +27,7 @@ export default function ListEntry ({menu}) {
     <div className='menu-container'>
       <div className='menu-label'>
         <div className='menu-name'>
-          {capitalize(currentMenu.name)}  <span className='e-selected'>${currentMenu.price}</span>
+          {capitalize(currentMenu.name)}  <span className='e-selected'>{currentMenu.price ? (<>{'$' + currentMenu.price}</>) : 'Market Price'}</span>
         </div>
         <div>
           <StarRating rating={rating} />

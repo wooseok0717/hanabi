@@ -40,7 +40,7 @@ export default function MenuDetails ({closeModal, item}) {
             {displayHelper && <MenuHelper closeModal={() => setDisplayHelper(false)}/>}
           </div>
           <div>
-            ${item.price}
+            {item.price ? (<>{'$' + item.price}</>) : 'Market Price'}
           </div>
           <StarRating rating={getAverageRating(item.ratings)}/>
           <SpicyLevel level={item.spicy} />
