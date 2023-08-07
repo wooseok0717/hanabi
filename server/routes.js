@@ -9,6 +9,8 @@ router.get('/ingredients', controllers.getIngredients);
 
 router.get('/types', controllers.getTypes);
 
+router.get('/types/ala', controllers.getTypesAla);
+
 router.get('/recipesWithType', controllers.getMenuByType);
 
 router.put(`/rating`, controllers.rateAMenu);

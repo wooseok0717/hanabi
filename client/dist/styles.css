@@ -239,3 +239,32 @@ body {
 .search-input {
   font-size: inherit;
 }
+
+.ayce {
+  color: pink
+}
+
+.ala {
+  color: rgb(192, 226, 255)
+}
+
+.ayce-selector {
+  display: flex;
+  margin: 3rem;
+  justify-content: space-around;
+  padding: 1rem;
+  font-size: 4rem;
+}
+
+.price-tag {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.current-selected {
+  font-weight: 700;
+  border: 4px solid #cdcdcd;
+  padding: 1rem;
+  border-radius: 2rem;
+}

@@ -2,17 +2,24 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import TypeList from './TypeList.jsx';
 
-export default function MenuList () {
+export default function MenuList ({ayce}) {
 
   const [types, setTypes] = useState([]);
   const [currentType, setCurrentType] = useState('');
 
   useEffect(() => {
-    axios.get('api/types')
-    .then(({data}) => {
-      setTypes(data);
-    });
-  },[])
+    if (ayce) {
+      axios.get('api/types')
+      .then(({data}) => {
+        setTypes(data);
+      });
+    } else {
+      axios.get('api/types/ala')
+      .then(({data}) => {
+        setTypes(data);
+      })
+    }
+  },[ayce])
 
   return (
     <div>

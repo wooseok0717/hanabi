@@ -10,11 +10,20 @@ export default function App() {
   const [allergies, setAllergies] = useState(false);
   const [displayHelper, setDisplayHelper] = useState(false);
   const [displaySearch, setDisplaySearch] = useState(false);
+  const [ayce, setAyce] = useState(true);
+
+  const handleAyce = (input) => {
+    setAyce(input)
+  };
 
   return (
 
     <>
       <Header />
+      <div className='price-tag'>
+        <div>Lunch $26.95</div>
+        <div>Dinner $33.95</div>
+      </div>
       <div className='allergies' onClick={() => setAllergies(true)}>Set your allergies</div>
       {allergies && (<AllergyModal closeModal={() => setAllergies(false)}/>)}
       <div className='helper'>
@@ -23,7 +32,21 @@ export default function App() {
         <button className='question-icon' onClick={() => setDisplayHelper(true)}>?</button>
         {displayHelper && <MenuHelper closeModal={() => setDisplayHelper(false)}/>}
       </div>
-      <MenuList />
+      <div className='ayce-selector'>
+        <div
+          onClick={() => handleAyce(true)}
+          className={ayce ? 'current-selected' : ''}
+        >
+          AYCE
+        </div>
+        <div
+          onClick={() => handleAyce(false)}
+          className={!ayce ? 'current-selected' : ''}
+        >
+          A LA CARTE
+        </div>
+      </div>
+      <MenuList ayce={ayce}/>
     </>
   )
 }

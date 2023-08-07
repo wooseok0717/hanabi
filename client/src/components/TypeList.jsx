@@ -24,7 +24,11 @@ export default function TypeList ({type, currentType, setCurrentType}) {
 
   return (
     <div>
-      <div className='list-type' onClick={() => handleSelection(type.name)}>{capitalize(type.name)}</div>
+      <div className='list-type' onClick={() => handleSelection(type.name)}>
+        {type.ayce ?
+        <span className='ala'>{capitalize(type.name)}</span> :
+        <span className='ayce'>{capitalize(type.name)}</span>}
+      </div>
       {(currentType === type.name) && (<div className='details'>{type.details}</div>)}
       {(currentType === type.name) && currentList.map(menu => (
         <ListEntry key={menu.id} menu={menu}/>
