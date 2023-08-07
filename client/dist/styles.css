@@ -254,6 +254,7 @@ body {
   justify-content: space-around;
   padding: 1rem;
   font-size: 4rem;
+  align-items: center;
 }
 
 .price-tag {
