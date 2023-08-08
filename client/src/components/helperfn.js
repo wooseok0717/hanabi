@@ -14,5 +14,12 @@ module.exports = {
     } else {
       return (total / count).toFixed(1);
     }
+  },
+  getRatingCount: (inputObj) => {
+    let count = 0;
+    for (let key in inputObj) {
+      count += inputObj[key];
+    }
+    return count;
   }
 }

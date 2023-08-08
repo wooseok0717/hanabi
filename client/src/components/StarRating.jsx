@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StarRating = ({ rating }) => {
+const StarRating = ({ rating, count }) => {
   const maxStars = 5;
   const roundedRating = Math.floor(rating);
   const decimalPart = rating - roundedRating;
@@ -9,7 +9,7 @@ const StarRating = ({ rating }) => {
 
   return (
     <>
-      {rating}{Array.from({ length: maxStars }, (_, index) => (
+      {`${rating}(${count})`}{Array.from({ length: maxStars }, (_, index) => (
         <span key={index} className='star'>
           {index < filledStars ? '★' : '☆'}
         </span>

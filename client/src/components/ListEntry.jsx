@@ -4,7 +4,7 @@ import SpicyLevel from './SpicyLevel.jsx';
 import StarRating from './StarRating.jsx';
 import MenuDetails from './MenuDetails.jsx';
 import RatingModal from './RatingModal.jsx';
-import {getAverageRating} from './helperfn';
+import {getAverageRating, getRatingCount } from './helperfn';
 import axios from 'axios';
 
 export default function ListEntry ({menu}) {
@@ -13,9 +13,11 @@ export default function ListEntry ({menu}) {
   const [showRating, setShowRating] = useState(false);
   const [currentMenu, setCurrentMenu] = useState(menu);
   const [rating, setRating] = useState(0);
+  const [ratingCount, setRatingCount] = useState(0);
 
   useEffect(() => {
     setRating(getAverageRating(currentMenu.ratings));
+    setRatingCount(getRatingCount(currentMenu.ratings));
   },[currentMenu]);
 
   const updateCurrentMenu = () => {
@@ -30,8 +32,7 @@ export default function ListEntry ({menu}) {
           {capitalize(currentMenu.name)}  <span className='e-selected'>{currentMenu.price ? (<>{'$' + currentMenu.price}</>) : 'Market Price'}</span>
         </div>
         <div>
-          {console.log()}
-          <StarRating rating={rating} />
+          <StarRating rating={rating} count={ratingCount}/>
           <SpicyLevel level={currentMenu.spicy} />
           <div className='icon-container'>
             {(menu.all_ingredients.some(x => localStorage[x])) && <div className='allergy-icon icon'>!</div>}
