@@ -151,6 +151,11 @@ body {
   background-color: #9466cc;
 }
 
+.allergy-icon {
+  background-color: red;
+  font-weight: 900;
+}
+
 .star {
   color: #b7b770;
 }

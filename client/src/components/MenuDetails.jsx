@@ -46,6 +46,7 @@ export default function MenuDetails ({closeModal, item}) {
           <SpicyLevel level={item.spicy} />
           <div>
           <div className='icon-container'>
+            {(item.all_ingredients.some(x => localStorage[x])) && <div className='allergy-icon icon'>!</div>}
             {item.one_order && <div className='one-icon icon'>1</div>}
             {item.dinner && <div className='d-icon icon'>D</div>}
             {item.raw && <div className='r-icon icon'>R</div>}
@@ -56,7 +57,7 @@ export default function MenuDetails ({closeModal, item}) {
         </div>
         <div className='modal-body'>
           {item.img ? <img className='detail-img' src={item.img} /> : `This menu doesn't have a image set yet` }
-          <div className='img-upload-button' onClick={() => setImgModal(true)}>Contribute with your image?</div>
+          {item.need_img && <div className='img-upload-button' onClick={() => setImgModal(true)}>Contribute with your image?</div>}
           {imgModal && <CloudinaryImageUpload closeModal={() => setImgModal(false)} item={item}/>}
           <div className='ingre-container'>
             {item.inside.length ? (

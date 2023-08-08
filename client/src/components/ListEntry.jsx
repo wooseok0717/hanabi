@@ -30,9 +30,11 @@ export default function ListEntry ({menu}) {
           {capitalize(currentMenu.name)}  <span className='e-selected'>{currentMenu.price ? (<>{'$' + currentMenu.price}</>) : 'Market Price'}</span>
         </div>
         <div>
+          {console.log()}
           <StarRating rating={rating} />
           <SpicyLevel level={currentMenu.spicy} />
           <div className='icon-container'>
+            {(menu.all_ingredients.some(x => localStorage[x])) && <div className='allergy-icon icon'>!</div>}
             {currentMenu.one_order && <div className='one-icon icon'>1</div>}
             {currentMenu.dinner && <div className='d-icon icon'>D</div>}
             {currentMenu.raw && <div className='r-icon icon'>R</div>}

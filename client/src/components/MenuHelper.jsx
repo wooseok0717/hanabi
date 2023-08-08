@@ -32,6 +32,10 @@ export default function MenuHelper ({closeModal}) {
             A La Carte only
           </div>
           <div className='desc-container'>
+            <div className='allergy-icon icon'>!</div>
+            Contains ingredients that you're allergic to
+          </div>
+          <div className='desc-container'>
             <div className='star'>★ </div>
             Ratings
           </div>
