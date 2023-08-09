@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {capitalize, getAverageRating} from './helperfn';
+import {capitalize, getAverageRating,getRatingCount} from './helperfn';
 import SpicyLevel from './SpicyLevel.jsx';
 import StarRating from './StarRating.jsx';
 import MenuHelper from './MenuHelper.jsx';
 import CloudinaryImageUpload from './CloudinaryImageUpload.jsx';
 import x from '../../dist/assets/x.png';
 
-export default function MenuDetails ({closeModal, item}) {
+export default function MenuDetails ({closeModal, item, ratingCount}) {
 
   const [allergies, setAllergies] = useState([]);
   const [filteredInside, setFilteredInside] = useState([]);
@@ -42,7 +42,7 @@ export default function MenuDetails ({closeModal, item}) {
           <div>
             {item.price ? (<>{'$' + item.price}</>) : 'Market Price'}
           </div>
-          <StarRating rating={getAverageRating(item.ratings)}/>
+          <StarRating rating={getAverageRating(item.ratings)} count={ratingCount}/>
           <SpicyLevel level={item.spicy} />
           <div>
           <div className='icon-container'>

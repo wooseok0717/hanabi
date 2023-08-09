@@ -43,7 +43,7 @@ export default function ListEntry ({menu}) {
             {currentMenu.alacarte && <div className='a-icon icon'>A</div>}
           </div>
         </div>
-        {showDetails && <MenuDetails closeModal={() => setShowDetails(false)} item={currentMenu}/>}
+        {showDetails && <MenuDetails closeModal={() => setShowDetails(false)} item={currentMenu} ratingCount={ratingCount}/>}
         {showRating && <RatingModal closeModal={() => setShowRating(false)} item={currentMenu} updateCurrentMenu={updateCurrentMenu}/>}
       </div>
       <div className='menu-buttons'>
