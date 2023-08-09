@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import ListEntry from './ListEntry.jsx';
-import {capitalize} from './helperfn';
+import {capitalize, joinWithDash} from './helperfn';
 
 export default function TypeList ({type, currentType, setCurrentType}) {
 
@@ -22,9 +22,22 @@ export default function TypeList ({type, currentType, setCurrentType}) {
     }
   }
 
+  useEffect(() => {
+    if (currentType !== '') {
+      scrollToSection(joinWithDash(currentType));
+    }
+  },[currentType])
+
+  const scrollToSection = (className) => {
+    const sections = document.getElementsByClassName(className);
+    if (sections.length > 0) {
+      sections[0].scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div>
-      <div className='list-type' onClick={() => handleSelection(type.name)}>
+      <div className={`list-type ${joinWithDash(type.name)}`} onClick={() => handleSelection(type.name)}>
         {type.ayce ?
         <span className='ala'>{capitalize(type.name)}</span> :
         <span className='ayce'>{capitalize(type.name)}</span>}

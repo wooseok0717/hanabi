@@ -21,5 +21,8 @@ module.exports = {
       count += inputObj[key];
     }
     return count;
+  },
+  joinWithDash: (input) => {
+    return input.split(' ').join('-');
   }
 }
