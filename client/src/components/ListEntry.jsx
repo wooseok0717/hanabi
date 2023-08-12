@@ -7,7 +7,7 @@ import RatingModal from './RatingModal.jsx';
 import {getAverageRating, getRatingCount } from './helperfn';
 import axios from 'axios';
 
-export default function ListEntry ({menu}) {
+export default function ListEntry ({menu, favorites, setFavorites}) {
 
   const [showDetails, setShowDetails] = useState(false);
   const [showRating, setShowRating] = useState(false);
@@ -29,7 +29,7 @@ export default function ListEntry ({menu}) {
     <div className='menu-container'>
       <div className='menu-label'>
         <div className='menu-name'>
-          {capitalize(currentMenu.name)}  <span className='e-selected'>{currentMenu.price ? (<>{'$' + currentMenu.price}</>) : 'Market Price'}</span>
+          {favorites.includes(currentMenu.id) && <span className='heart'>♥</span>}{capitalize(currentMenu.name)}  <span className='e-selected'>{currentMenu.price ? (<>{'$' + currentMenu.price}</>) : 'Market Price'}</span>
         </div>
         <div>
           <StarRating rating={rating} count={ratingCount}/>
@@ -43,7 +43,7 @@ export default function ListEntry ({menu}) {
             {currentMenu.alacarte && <div className='a-icon icon'>A</div>}
           </div>
         </div>
-        {showDetails && <MenuDetails closeModal={() => setShowDetails(false)} item={currentMenu} ratingCount={ratingCount}/>}
+        {showDetails && <MenuDetails closeModal={() => setShowDetails(false)} item={currentMenu} ratingCount={ratingCount} setFavorites={setFavorites}/>}
         {showRating && <RatingModal closeModal={() => setShowRating(false)} item={currentMenu} updateCurrentMenu={updateCurrentMenu}/>}
       </div>
       <div className='menu-buttons'>

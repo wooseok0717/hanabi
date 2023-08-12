@@ -3,7 +3,7 @@ import x from '../../dist/assets/x.png'
 import axios from 'axios';
 import ListEntry from './ListEntry.jsx';
 
-export default function SearchModal ({closeModal}) {
+export default function SearchModal ({closeModal, favorites, setFavorites}) {
 
   const [searchInput, setSearchInput] = useState('');
   const [searchOutput, setSearchOutput] = useState([]);
@@ -26,7 +26,7 @@ export default function SearchModal ({closeModal}) {
         </div>
         <div className='modal-body'>
           {searchOutput.map(menu => (
-            <ListEntry key={menu.id} menu={menu} />
+            <ListEntry key={menu.id} menu={menu} favorites={favorites} setFavorites={setFavorites}/>
           ))}
         </div>
       </div>

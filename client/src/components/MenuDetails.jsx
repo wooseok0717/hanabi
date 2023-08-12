@@ -6,7 +6,7 @@ import MenuHelper from './MenuHelper.jsx';
 import CloudinaryImageUpload from './CloudinaryImageUpload.jsx';
 import x from '../../dist/assets/x.png';
 
-export default function MenuDetails ({closeModal, item, ratingCount}) {
+export default function MenuDetails ({closeModal, item, ratingCount, setFavorites}) {
 
   const [allergies, setAllergies] = useState([]);
   const [filteredInside, setFilteredInside] = useState([]);
@@ -14,6 +14,22 @@ export default function MenuDetails ({closeModal, item, ratingCount}) {
   const [filteredSauce, setFilteredSauce] = useState([]);
   const [displayHelper, setDisplayHelper] = useState(false);
   const [imgModal, setImgModal] = useState(false);
+  const [favorite, setFavorite] = useState(JSON.parse(localStorage.favorites).includes(item.id));
+
+  const handleFavorite = () => {
+    let currentStorage = new Set(JSON.parse(localStorage.favorites));
+    if (currentStorage.has(item.id)) {
+      currentStorage.delete(item.id);
+      localStorage.setItem('favorites', JSON.stringify(Array.from(currentStorage)));
+      setFavorite(false);
+      setFavorites(Array.from(currentStorage));
+    } else {
+      currentStorage.add(item.id);
+      localStorage.setItem('favorites', JSON.stringify(Array.from(currentStorage)));
+      setFavorite(true);
+      setFavorites(Array.from(currentStorage));
+    }
+  }
 
   useEffect(() => {
     const all = [...item.inside, ...item.outside, ...item.sauce];
@@ -34,8 +50,9 @@ export default function MenuDetails ({closeModal, item, ratingCount}) {
           <div className='close-button'>
             <img src={x} onClick={closeModal}/>
           </div>
-          <h3 className='detail-title'>{capitalize(item.name)}</h3>
+          <h3 className='detail-title'><span className='heart'>{favorite ? '♥' : ''}</span>{capitalize(item.name)}</h3>
           <div className='helper'>
+            <span className='button-like-span' onClick={handleFavorite}>{favorite ? 'Remove from Favorites':'Add to Favorites'}</span>
             <button className='question-icon' onClick={() => setDisplayHelper(true)}>?</button>
             {displayHelper && <MenuHelper closeModal={() => setDisplayHelper(false)}/>}
           </div>

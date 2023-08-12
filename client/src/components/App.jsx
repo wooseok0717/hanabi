@@ -11,10 +11,15 @@ export default function App() {
     localStorage.setItem('allergies', JSON.stringify({}));
   }
 
+  if (localStorage.favorites === undefined) {
+    localStorage.setItem('favorites', JSON.stringify([]));
+  }
+
   const [allergies, setAllergies] = useState(false);
   const [displayHelper, setDisplayHelper] = useState(false);
   const [displaySearch, setDisplaySearch] = useState(false);
   const [ayce, setAyce] = useState(true);
+  const [favorites, setFavorites] = useState(JSON.parse(localStorage.favorites));
 
   const handleAyce = (input) => {
     setAyce(input)
@@ -31,8 +36,9 @@ export default function App() {
       <div className='allergies' onClick={() => setAllergies(true)}>Set your allergies</div>
       {allergies && (<AllergyModal closeModal={() => setAllergies(false)}/>)}
       <div className='helper'>
-        <span className='search-icon' onClick={() => setDisplaySearch(true)}>Search</span>
-        {displaySearch && <SearchModal closeModal={() => setDisplaySearch(false)}/>}
+        <span className='button-like-span' onClick={() => setDisplaySearch(true)}>Search</span>
+        {displaySearch && <SearchModal closeModal={() => setDisplaySearch(false)} favorites={favorites} setFavorites={setFavorites}/>}
+        <span className='button-like-span'>My Favorites</span>
         <button className='question-icon' onClick={() => setDisplayHelper(true)}>?</button>
         {displayHelper && <MenuHelper closeModal={() => setDisplayHelper(false)}/>}
       </div>
@@ -50,7 +56,7 @@ export default function App() {
           A LA CARTE
         </div>
       </div>
-      <MenuList ayce={ayce}/>
+      <MenuList ayce={ayce} favorites={favorites} setFavorites={setFavorites}/>
     </>
   )
 }

@@ -3,7 +3,7 @@ import axios from 'axios';
 import ListEntry from './ListEntry.jsx';
 import {capitalize, joinWithDash} from './helperfn';
 
-export default function TypeList ({type, currentType, setCurrentType}) {
+export default function TypeList ({type, currentType, setCurrentType, favorites, setFavorites}) {
 
   const [currentList, setCurrentList] = useState([]);
 
@@ -44,7 +44,7 @@ export default function TypeList ({type, currentType, setCurrentType}) {
       </div>
       {(currentType === type.name) && (<div className='details'>{type.details}</div>)}
       {(currentType === type.name) && currentList.map(menu => (
-        <ListEntry key={menu.id} menu={menu}/>
+        <ListEntry key={menu.id} menu={menu} favorites={favorites} setFavorites={setFavorites}/>
       ))}
     </div>
   )
