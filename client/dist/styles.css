@@ -75,6 +75,10 @@ body {
   font-weight: 700;
 }
 
+.i-entry.e-selected {
+  color: red;
+}
+
 .list-type {
   margin-top: 3rem;
   border-bottom: 2px solid #cdcdcd;

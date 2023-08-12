@@ -7,6 +7,10 @@ import SearchModal from './SearchModal.jsx';
 
 export default function App() {
 
+  if (localStorage.allergies === undefined) {
+    localStorage.setItem('allergies', JSON.stringify({}));
+  }
+
   const [allergies, setAllergies] = useState(false);
   const [displayHelper, setDisplayHelper] = useState(false);
   const [displaySearch, setDisplaySearch] = useState(false);

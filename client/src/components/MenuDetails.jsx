@@ -17,7 +17,7 @@ export default function MenuDetails ({closeModal, item, ratingCount}) {
 
   useEffect(() => {
     const all = [...item.inside, ...item.outside, ...item.sauce];
-    setAllergies(all.filter(x => localStorage[x.name]).map(x => x.name));
+    setAllergies(all.filter(x => JSON.parse(localStorage.allergies)[x.name]).map(x => x.name));
     ;
   },[]);
 
@@ -46,7 +46,7 @@ export default function MenuDetails ({closeModal, item, ratingCount}) {
           <SpicyLevel level={item.spicy} />
           <div>
           <div className='icon-container'>
-            {(item.all_ingredients.some(x => localStorage[x])) && <div className='allergy-icon icon'>!</div>}
+            {(item.all_ingredients.some(x => JSON.parse(localStorage.allergies)[x])) && <div className='allergy-icon icon'>!</div>}
             {item.one_order && <div className='one-icon icon'>1</div>}
             {item.dinner && <div className='d-icon icon'>D</div>}
             {item.raw && <div className='r-icon icon'>R</div>}

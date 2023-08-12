@@ -6,8 +6,8 @@ export default function AllergyModal ({closeModal}) {
 
   const storageList = [];
   useEffect(() => {
-    for (let x = 0; x < localStorage.length; x++) {
-      storageList.push(localStorage.key(x));
+    for (let key in JSON.parse(localStorage.allergies)) {
+      storageList.push(key);
     }
   },[]);
 
