@@ -43,6 +43,10 @@ export default function MenuHelper ({closeModal}) {
             <div>🌶️</div>
             Spicy level
           </div>
+          <div className='desc-container'>
+            <div className='heart'>♥</div>
+            Your favorites
+          </div>
         </div>
       </div>
     </div>
