@@ -4,6 +4,7 @@ import AllergyModal from './AllergyModal.jsx';
 import MenuList from './MenuList.jsx';
 import MenuHelper from './MenuHelper.jsx';
 import SearchModal from './SearchModal.jsx';
+import Favorites from './Favorites.jsx';
 
 export default function App() {
 
@@ -18,6 +19,7 @@ export default function App() {
   const [allergies, setAllergies] = useState(false);
   const [displayHelper, setDisplayHelper] = useState(false);
   const [displaySearch, setDisplaySearch] = useState(false);
+  const [displayFav, setDisplayFav] = useState(false);
   const [ayce, setAyce] = useState(true);
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.favorites));
 
@@ -38,7 +40,8 @@ export default function App() {
       <div className='helper'>
         <span className='button-like-span' onClick={() => setDisplaySearch(true)}>Search</span>
         {displaySearch && <SearchModal closeModal={() => setDisplaySearch(false)} favorites={favorites} setFavorites={setFavorites}/>}
-        <span className='button-like-span'>My Favorites</span>
+        <span className='button-like-span' onClick={() => setDisplayFav(true)}>My Favorites</span>
+        {displayFav && <Favorites closeModal={() => setDisplayFav(false)} favorites={favorites} setFavorites={setFavorites}/>}
         <button className='question-icon' onClick={() => setDisplayHelper(true)}>?</button>
         {displayHelper && <MenuHelper closeModal={() => setDisplayHelper(false)}/>}
       </div>

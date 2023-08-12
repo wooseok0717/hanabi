@@ -1,6 +1,6 @@
 const axios = require('axios');
-const baseURL ='http://54.183.201.13:3000';
-// const baseURL ='http://127.0.0.1:3000';
+// const baseURL ='http://54.183.201.13:3000';
+const baseURL ='http://127.0.0.1:3000';
 
 module.exports = {
   getIngredients: (req, res) => {
@@ -33,6 +33,10 @@ module.exports = {
   },
   getTypesAla: (req, res) => {
     axios.get(`${baseURL}/api/types/ala`)
+    .then(({data}) => res.send(data));
+  },
+  favorites: (req, res) => {
+    axios.get(`${baseURL}/api/favorites/?fav=${req.query.fav}`)
     .then(({data}) => res.send(data));
   }
 }

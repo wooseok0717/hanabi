@@ -21,4 +21,6 @@ router.post('/img', controllers.addImg);
 
 router.get('/search', controllers.search);
 
+router.get('/favorites', controllers.favorites);
+
 module.exports = router;
