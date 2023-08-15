@@ -5,6 +5,7 @@ import MenuList from './MenuList.jsx';
 import MenuHelper from './MenuHelper.jsx';
 import SearchModal from './SearchModal.jsx';
 import Favorites from './Favorites.jsx';
+import AppInstruction from './AppInstruction.jsx';
 
 export default function App() {
 
@@ -22,6 +23,7 @@ export default function App() {
   const [displayFav, setDisplayFav] = useState(false);
   const [ayce, setAyce] = useState(true);
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.favorites));
+  const [appInstruction, setAppInstruction] = useState(localStorage.appInstruction);
 
   const handleAyce = (input) => {
     setAyce(input)
@@ -30,6 +32,8 @@ export default function App() {
   return (
 
     <>
+      <span onClick={() => setAppInstruction(false)}>INSTRUCTIONS</span>
+      {!appInstruction && <AppInstruction closeModal={() => setAppInstruction(true)}/>}
       <Header />
       <div className='price-tag'>
         <div>Lunch $26.95</div>

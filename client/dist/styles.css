@@ -282,3 +282,25 @@ body {
 .heart {
   color: red;
 }
+
+.instruction-header {
+  text-align: center;
+  font-size: 6rem;
+}
+
+.instruction-footer {
+  display: flex;
+}
+
+.instruction-next-button, .instruction-close-button {
+  margin-left: auto;
+}
+
+.gif-container {
+  display: flex;
+  justify-content: center;
+}
+
+.gif-container img {
+  width: 60%;
+}
