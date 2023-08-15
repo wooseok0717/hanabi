@@ -32,8 +32,10 @@ export default function App() {
   return (
 
     <>
-      <span onClick={() => setAppInstruction(false)}>INSTRUCTIONS</span>
       {!appInstruction && <AppInstruction closeModal={() => setAppInstruction(true)}/>}
+      <div className='instruction-btn-conatiner'>
+        <span className='button-like-span' onClick={() => setAppInstruction(false)}>Instructions</span>
+      </div>
       <Header />
       <div className='price-tag'>
         <div>Lunch $26.95</div>

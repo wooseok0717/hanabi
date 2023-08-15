@@ -8,7 +8,8 @@ export default function SearchModal ({closeModal, favorites, setFavorites}) {
   const [searchInput, setSearchInput] = useState('');
   const [searchOutput, setSearchOutput] = useState([]);
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     axios.get(`/api/search/?input=${searchInput.toLowerCase()}`)
     .then(({data}) => setSearchOutput(data));
   }
@@ -21,8 +22,10 @@ export default function SearchModal ({closeModal, favorites, setFavorites}) {
         </div>
         <div className='modal-header'>
           <h3>Search for a menu or ingredient</h3>
-          <input className='search-input' onChange={e => setSearchInput(e.target.value)}/>
-          <span onClick={handleSearch}>Search</span>
+          <form onSubmit={handleSearch}>
+            <input className='search-input' onChange={e => setSearchInput(e.target.value)}/>
+            <span onClick={handleSearch}>Search</span>
+          </form>
         </div>
         <div className='modal-body'>
           {searchOutput.map(menu => (
