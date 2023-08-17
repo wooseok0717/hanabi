@@ -23,4 +23,8 @@ router.get('/search', controllers.search);
 
 router.get('/favorites', controllers.favorites);
 
+router.post('/ratings', controllers.ratings);
+
+router.put('/ratings', controllers.updateRatings);
+
 module.exports = router;

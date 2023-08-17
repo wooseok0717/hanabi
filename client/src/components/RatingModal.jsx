@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {capitalize} from './helperfn';
 import x from '../../dist/assets/x.png';
 import axios from 'axios';
@@ -8,7 +8,19 @@ export default function RatingModal ({item, closeModal, totalStars=5, updateCurr
 
   const [initialRating, setInitialRating] = useState(localStorage[item.name + ' rating']);
   const [rating, setRating] = useState(initialRating);
+  const [initialReview, setInitialReview] = useState('');
+  const [reviewInput, setReviewInput] = useState('');
   const [ratingIns, setRatingIns] = useState(localStorage.ratingIns);
+
+  useEffect(() => {
+    if (localStorage[item.name + ' review'] !== undefined) {
+      setInitialReview(localStorage[item.name + ' review']);
+    }
+  },[]);
+
+  useEffect(() => {
+    setReviewInput(initialReview);
+  },[initialReview]);
 
   const handleStarClick = (clickedRating) => {
     setRating(clickedRating);
@@ -17,16 +29,29 @@ export default function RatingModal ({item, closeModal, totalStars=5, updateCurr
   const handleSubmit = () => {
     if (rating === undefined) {
       alert('Please give me your rating');
-    } else if (initialRating === rating) {
+    } else if ((initialRating === rating) && (initialReview === reviewInput)) {
       closeModal();
-    } else {
-      axios.put(`/api/rating/?id=${item.id}&prev=${initialRating}&new=${rating}`)
+    } else if (localStorage[item.name+' review_id'] === undefined) {
+      // alert('creation should happnen');
+      axios.post('/api/ratings', {
+        rating, reviewInput, id: item.id
+      })
       .then(({data}) => {
-        updateCurrentMenu();
+        console.log(data);
+        localStorage.setItem(item.name+' review_id', data.id);
+        localStorage.setItem(item.name+' rating', rating);
+        localStorage.setItem(item.name+' review', reviewInput);
         closeModal();
       });
+      // });
+    } else {
+      axios.put(`/api/ratings/?id=${localStorage[item.name+' review_id']}&rating=${rating}&review=${reviewInput}`)
+      .then(({data}) => {
+        console.log(data);
+      });
+      closeModal();
     }
-    localStorage.setItem(item.name+' rating', rating);
+
   }
 
   return (
@@ -53,6 +78,10 @@ export default function RatingModal ({item, closeModal, totalStars=5, updateCurr
                 </span>
               );
             })}
+          </div>
+          <div>
+            Give a Review
+            <input placeholder='(optional)' value={reviewInput} onChange={e => setReviewInput(e.target.value)}/>
           </div>
         </div>
         <div className='modal-footer'>

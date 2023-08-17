@@ -3,7 +3,7 @@ import {capitalize} from './helperfn';
 import SpicyLevel from './SpicyLevel.jsx';
 import StarRating from './StarRating.jsx';
 import MenuDetails from './MenuDetails.jsx';
-import RatingModal from './RatingModal.jsx';
+import Ratings from './Ratings.jsx';
 import {getAverageRating, getRatingCount } from './helperfn';
 import axios from 'axios';
 
@@ -44,10 +44,10 @@ export default function ListEntry ({menu, favorites, setFavorites}) {
           </div>
         </div>
         {showDetails && <MenuDetails closeModal={() => setShowDetails(false)} item={currentMenu} ratingCount={ratingCount} setFavorites={setFavorites}/>}
-        {showRating && <RatingModal closeModal={() => setShowRating(false)} item={currentMenu} updateCurrentMenu={updateCurrentMenu}/>}
+        {showRating && <Ratings closeModal={() => setShowRating(false)} item={currentMenu} updateCurrentMenu={updateCurrentMenu}/>}
       </div>
       <div className='menu-buttons'>
-        <span onClick={() => setShowRating(true)}>Rate</span>
+        <span onClick={() => setShowRating(true)}>Ratings</span>
         <span onClick={() => setShowDetails(true)}>Details</span>
       </div>
     </div>

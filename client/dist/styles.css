@@ -313,3 +313,7 @@ body {
 .instruction-btn-conatiner span {
   margin: 1rem 2rem;
 }
+
+.rating-modal input {
+  font-size: inherit;
+}

@@ -1,6 +1,6 @@
 const axios = require('axios');
-const baseURL ='http://54.183.201.13:3000';
-// const baseURL ='http://127.0.0.1:3000';
+// const baseURL ='http://54.183.201.13:3000';
+const baseURL ='http://127.0.0.1:3000';
 
 module.exports = {
   getIngredients: (req, res) => {
@@ -38,5 +38,16 @@ module.exports = {
   favorites: (req, res) => {
     axios.get(`${baseURL}/api/favorites/?fav=${req.query.fav}`)
     .then(({data}) => res.send(data));
+  },
+  ratings: (req, res) => {
+    axios.post(`${baseURL}/api/ratings`, req.body)
+    .then(({data}) => res.send(data));
+  },
+  updateRatings: (req, res) => {
+    const {id, rating, review} = req.query;
+    axios.put(`${baseURL}/api/ratings/?id=${id}&rating=${rating}&review=${review}`)
+    .then(({data}) => {
+      res.send(data);
+    })
   }
 }

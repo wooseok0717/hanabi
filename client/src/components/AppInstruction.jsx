@@ -6,6 +6,7 @@ import searchDemo from '../../dist/assets/search-demo.gif';
 import favoritesDemo from '../../dist/assets/favorites-demo.gif';
 import ratingDemo from '../../dist/assets/rating-demo.gif';
 import detailsDemo from '../../dist/assets/details-demo.gif';
+import x from '../../dist/assets/x.png';
 
 export default function AppInstruction ({closeModal}) {
 
@@ -61,6 +62,9 @@ export default function AppInstruction ({closeModal}) {
   return (
     <div className='modal'>
       <div className='modal-content'>
+        <div className='close-button'>
+          <img src={x} onClick={handleClose}/>
+        </div>
         <div className='modal-header instruction-header'>
           {pageInputs[currentPage].header}
         </div>
