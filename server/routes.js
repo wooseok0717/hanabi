@@ -31,4 +31,6 @@ router.get('/ratings', controllers.getReviews);
 
 router.put('/helpful', controllers.updateHelpful);
 
+router.put('/review/report', controllers.updateReport);
+
 module.exports = router;

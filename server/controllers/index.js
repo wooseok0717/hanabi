@@ -58,5 +58,9 @@ module.exports = {
     const {id, update} = req.query;
     axios.put(`${baseURL}/api/helpful/?id=${id}&update=${update}`)
     .then(({data}) => res.send(data));
+  },
+  updateReport: (req, res) => {
+    axios.put(`${baseURL}/api/review/report/?id=${req.query.id}`)
+    .then(({data}) => res.send(data));
   }
 }

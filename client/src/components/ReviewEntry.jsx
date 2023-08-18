@@ -24,6 +24,11 @@ export default function ReviewEntry ({review, getReviews}) {
     }
   }
 
+  const handleReport = () => {
+    axios.put(`/api/review/report/?id=${review.id}`)
+    .then(({data}) => alert('Report has been submitted'));
+  }
+
   if (!review.review) {
     return null;
   }
@@ -43,7 +48,7 @@ export default function ReviewEntry ({review, getReviews}) {
         </div>
         <div>
           <span className='button-like-span' onClick={handleHelpful}>{review.helpful} helpful</span>
-          <span className='button-like-span'>report</span>
+          <span className='button-like-span' onClick={handleReport}>report</span>
         </div>
       </div>
     </div>
