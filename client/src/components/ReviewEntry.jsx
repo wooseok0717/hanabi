@@ -41,7 +41,9 @@ export default function ReviewEntry ({review, getReviews}) {
           {formatDistanceToNow(parseISO(review.timestamp), { addSuffix: true })}
         </div>
       </div>
-      {review.review}
+      <div className='review-body'>
+        {review.review}
+      </div>
       <div className='review-detail-container'>
         <div className='review-rating-container'>
           <StarRating rating={review.rating}/>
