@@ -49,5 +49,14 @@ module.exports = {
     .then(({data}) => {
       res.send(data);
     })
+  },
+  getReviews: (req, res) => {
+    axios.get(`${baseURL}/api/ratings/?id=${req.query.id}`)
+    .then(({data}) => res.send(data));
+  },
+  updateHelpful: (req, res) => {
+    const {id, update} = req.query;
+    axios.put(`${baseURL}/api/helpful/?id=${id}&update=${update}`)
+    .then(({data}) => res.send(data));
   }
 }

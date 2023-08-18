@@ -4,7 +4,7 @@ import x from '../../dist/assets/x.png';
 import axios from 'axios';
 import RatingInstruction from './RatingInstruction.jsx';
 
-export default function RatingModal ({item, closeModal, totalStars=5, updateCurrentMenu}) {
+export default function RatingModal ({item, closeModal, totalStars=5, getReviews}) {
 
   const [initialRating, setInitialRating] = useState(localStorage[item.name + ' rating']);
   const [rating, setRating] = useState(initialRating);
@@ -32,26 +32,26 @@ export default function RatingModal ({item, closeModal, totalStars=5, updateCurr
     } else if ((initialRating === rating) && (initialReview === reviewInput)) {
       closeModal();
     } else if (localStorage[item.name+' review_id'] === undefined) {
-      // alert('creation should happnen');
       axios.post('/api/ratings', {
         rating, reviewInput, id: item.id
       })
       .then(({data}) => {
-        console.log(data);
         localStorage.setItem(item.name+' review_id', data.id);
         localStorage.setItem(item.name+' rating', rating);
         localStorage.setItem(item.name+' review', reviewInput);
+        getReviews();
         closeModal();
       });
       // });
     } else {
       axios.put(`/api/ratings/?id=${localStorage[item.name+' review_id']}&rating=${rating}&review=${reviewInput}`)
       .then(({data}) => {
-        console.log(data);
+        localStorage.setItem(item.name+' rating', rating);
+        localStorage.setItem(item.name+' review', reviewInput);
+        getReviews();
+        closeModal();
       });
-      closeModal();
     }
-
   }
 
   return (

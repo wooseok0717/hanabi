@@ -59,7 +59,7 @@ export default function MenuDetails ({closeModal, item, ratingCount, setFavorite
           <div>
             {item.price ? (<>{'$' + item.price}</>) : 'Market Price'}
           </div>
-          <StarRating rating={getAverageRating(item.ratings)} count={ratingCount}/>
+          <StarRating rating={item.avg_rating} count={item.rating_count}/>
           <SpicyLevel level={item.spicy} />
           <div>
           <div className='icon-container'>

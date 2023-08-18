@@ -32,7 +32,7 @@ export default function ListEntry ({menu, favorites, setFavorites}) {
           {favorites.includes(currentMenu.id) && <span className='heart'>♥</span>}{capitalize(currentMenu.name)}  <span className='e-selected'>{currentMenu.price ? (<>{'$' + currentMenu.price}</>) : 'Market Price'}</span>
         </div>
         <div>
-          <StarRating rating={rating} count={ratingCount}/>
+          <StarRating rating={menu.avg_rating} count={menu.rating_count}/>
           <SpicyLevel level={currentMenu.spicy} />
           <div className='icon-container'>
             {(menu.all_ingredients.some(x => JSON.parse(localStorage.allergies)[x])) && <div className='allergy-icon icon'>!</div>}

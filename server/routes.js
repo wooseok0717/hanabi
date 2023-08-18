@@ -27,4 +27,8 @@ router.post('/ratings', controllers.ratings);
 
 router.put('/ratings', controllers.updateRatings);
 
+router.get('/ratings', controllers.getReviews);
+
+router.put('/helpful', controllers.updateHelpful);
+
 module.exports = router;

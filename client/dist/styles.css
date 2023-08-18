@@ -317,3 +317,23 @@ body {
 .rating-modal input {
   font-size: inherit;
 }
+
+.review-label {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #cdcdcd;
+}
+
+.review-entry {
+  border: 2px solid #cdcdcd;
+  border-radius: 2rem;
+  padding: 1rem;
+  margin: 2rem 1rem;
+}
+
+.review-detail-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
