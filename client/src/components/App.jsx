@@ -9,6 +9,11 @@ import AppInstruction from './AppInstruction.jsx';
 
 export default function App() {
 
+  if (localStorage.refresh === undefined) {
+    localStorage.clear();
+    localStorage.setItem('refresh', 'done');
+  }
+
   if (localStorage.allergies === undefined) {
     localStorage.setItem('allergies', JSON.stringify({}));
   }
