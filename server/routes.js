@@ -33,4 +33,6 @@ router.put('/helpful', controllers.updateHelpful);
 
 router.put('/review/report', controllers.updateReport);
 
+router.put('/favorite', controllers.updateFavorite);
+
 module.exports = router;

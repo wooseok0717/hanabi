@@ -43,7 +43,7 @@ export default function ListEntry ({menu, favorites, setFavorites, getRecipes}) 
             {currentMenu.alacarte && <div className='a-icon icon'>A</div>}
           </div>
         </div>
-        {showDetails && <MenuDetails closeModal={() => setShowDetails(false)} item={currentMenu} ratingCount={ratingCount} setFavorites={setFavorites}/>}
+        {showDetails && <MenuDetails closeModal={() => setShowDetails(false)} item={currentMenu} ratingCount={ratingCount} setFavorites={setFavorites} getRecipes={getRecipes} updateCurrentMenu={updateCurrentMenu}/>}
         {showRating && <Ratings closeModal={() => setShowRating(false)} item={currentMenu} updateCurrentMenu={updateCurrentMenu} getRecipes={getRecipes}/>}
       </div>
       <div className='menu-buttons'>

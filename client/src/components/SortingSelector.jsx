@@ -15,6 +15,7 @@ export default function SortingSelector ({currentSort, setCurrentSort}) {
         <option value='price-desc'>Price: High to Low</option>
         <option value='avg_rating-asc'>Rating: Low to High</option>
         <option value='avg_rating-desc'>Rating: High to Low</option>
+        <option value='favorite_count-desc'>Favorites: High to Low</option>
         {/* <option value='id-asc'>As the writen Menu</option> */}
       </select>
     </div>

@@ -5,8 +5,9 @@ import StarRating from './StarRating.jsx';
 import MenuHelper from './MenuHelper.jsx';
 import CloudinaryImageUpload from './CloudinaryImageUpload.jsx';
 import x from '../../dist/assets/x.png';
+import axios from 'axios';
 
-export default function MenuDetails ({closeModal, item, ratingCount, setFavorites}) {
+export default function MenuDetails ({closeModal, item, ratingCount, setFavorites, getRecipes, updateCurrentMenu}) {
 
   const [allergies, setAllergies] = useState([]);
   const [filteredInside, setFilteredInside] = useState([]);
@@ -23,11 +24,29 @@ export default function MenuDetails ({closeModal, item, ratingCount, setFavorite
       localStorage.setItem('favorites', JSON.stringify(Array.from(currentStorage)));
       setFavorite(false);
       setFavorites(Array.from(currentStorage));
+      axios.put(`/api/favorite/?id=${item.id}&edit=decrement`)
+      .then(({data}) => {
+        if (getRecipes) {
+          getRecipes();
+        }
+        if (updateCurrentMenu) {
+          updateCurrentMenu();
+        }
+      });
     } else {
       currentStorage.add(item.id);
       localStorage.setItem('favorites', JSON.stringify(Array.from(currentStorage)));
       setFavorite(true);
       setFavorites(Array.from(currentStorage));
+      axios.put(`/api/favorite/?id=${item.id}&edit=increment`)
+      .then(({data}) => {
+        if (getRecipes) {
+          getRecipes();
+        }
+        if (updateCurrentMenu) {
+          updateCurrentMenu();
+        }
+      });
     }
   }
 
@@ -62,14 +81,17 @@ export default function MenuDetails ({closeModal, item, ratingCount, setFavorite
           <StarRating rating={item.avg_rating} count={item.rating_count}/>
           <SpicyLevel level={item.spicy} />
           <div>
-          <div className='icon-container'>
-            {(item.all_ingredients.some(x => JSON.parse(localStorage.allergies)[x])) && <div className='allergy-icon icon'>!</div>}
-            {item.one_order && <div className='one-icon icon'>1</div>}
-            {item.dinner && <div className='d-icon icon'>D</div>}
-            {item.raw && <div className='r-icon icon'>R</div>}
-            {item.handroll && <div className='h-icon icon'>H</div>}
-            {item.alacarte && <div className='a-icon icon'>A</div>}
+            <div className='icon-container'>
+              {(item.all_ingredients.some(x => JSON.parse(localStorage.allergies)[x])) && <div className='allergy-icon icon'>!</div>}
+              {item.one_order && <div className='one-icon icon'>1</div>}
+              {item.dinner && <div className='d-icon icon'>D</div>}
+              {item.raw && <div className='r-icon icon'>R</div>}
+              {item.handroll && <div className='h-icon icon'>H</div>}
+              {item.alacarte && <div className='a-icon icon'>A</div>}
+            </div>
           </div>
+          <div>
+            {item.favorite_count} person(s) added this item as their favorite.
           </div>
         </div>
         <div className='modal-body'>
