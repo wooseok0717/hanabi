@@ -4,7 +4,7 @@ import x from '../../dist/assets/x.png';
 import axios from 'axios';
 import RatingInstruction from './RatingInstruction.jsx';
 
-export default function RatingModal ({item, closeModal, totalStars=5, getReviews}) {
+export default function RatingModal ({item, closeModal, totalStars=5, getReviews, getRecipes}) {
 
   const [initialRating, setInitialRating] = useState(localStorage[item.name + ' rating']);
   const [rating, setRating] = useState(initialRating);
@@ -41,6 +41,7 @@ export default function RatingModal ({item, closeModal, totalStars=5, getReviews
         localStorage.setItem(item.name+' review', reviewInput);
         getReviews();
         closeModal();
+        getRecipes();
       });
       // });
     } else {
@@ -50,6 +51,7 @@ export default function RatingModal ({item, closeModal, totalStars=5, getReviews
         localStorage.setItem(item.name+' review', reviewInput);
         getReviews();
         closeModal();
+        getRecipes();
       });
     }
   }

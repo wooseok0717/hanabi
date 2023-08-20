@@ -341,3 +341,12 @@ body {
 .review-body {
   margin: 1rem 0;
 }
+
+.sort-selection {
+  font-size: inherit;
+}
+
+.sort-container {
+  display: flex;
+  justify-content: flex-end;
+}

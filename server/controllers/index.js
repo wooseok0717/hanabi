@@ -12,7 +12,7 @@ module.exports = {
     .then(({data}) => res.send(data));
   },
   getMenuByType: (req, res) => {
-    axios.get(`${baseURL}/api/recipes/?id=${req.query.id}`)
+    axios.get(`${baseURL}/api/recipes/?id=${req.query.id}&sort=${req.query.sort}`)
     .then(({data}) => res.send(data));
   },
   rateAMenu: (req, res) => {

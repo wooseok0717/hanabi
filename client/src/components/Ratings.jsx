@@ -5,7 +5,7 @@ import x from '../../dist/assets/x.png';
 import axios from 'axios';
 import ReviewEntry from './ReviewEntry.jsx';
 
-export default function Ratings({closeModal, item, updateCurrentMenu}) {
+export default function Ratings({closeModal, item, updateCurrentMenu, getRecipes}) {
 
   const [ratingModal, setRatingModal] = useState(false);
   const [reviewList, setReviewList] = useState([]);
@@ -34,7 +34,7 @@ export default function Ratings({closeModal, item, updateCurrentMenu}) {
           {reviewList.length ? reviewList.map(review => (
             <ReviewEntry review={review} key={review.id} getReviews={getReviews}/>
           )) : 'THERE ARE NO REVIEW WRITEN FOR THIS MENU'}
-          {ratingModal && <RatingModal item={item} closeModal={() => setRatingModal(false)} getReviews={getReviews}/>}
+          {ratingModal && <RatingModal item={item} closeModal={() => setRatingModal(false)} getReviews={getReviews} getRecipes={getRecipes}/>}
         </div>
         <div className='modal-footer'>
           <span className='button-like-span' onClick={() => setRatingModal(true)}>Add your rating & review</span>

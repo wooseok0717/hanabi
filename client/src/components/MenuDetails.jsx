@@ -74,7 +74,7 @@ export default function MenuDetails ({closeModal, item, ratingCount, setFavorite
         </div>
         <div className='modal-body'>
           {item.img ? <img className='detail-img' src={item.img} /> : `This menu doesn't have a image set yet` }
-          {item.need_img && <div className='img-upload-button' onClick={() => setImgModal(true)}>Contribute with your image?</div>}
+          {<div className='img-upload-button' onClick={() => setImgModal(true)}>Contribute with your image?</div>}
           {imgModal && <CloudinaryImageUpload closeModal={() => setImgModal(false)} item={item}/>}
           <div className='ingre-container'>
             {item.inside.length ? (

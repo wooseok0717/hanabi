@@ -7,7 +7,7 @@ import Ratings from './Ratings.jsx';
 import {getAverageRating, getRatingCount } from './helperfn';
 import axios from 'axios';
 
-export default function ListEntry ({menu, favorites, setFavorites}) {
+export default function ListEntry ({menu, favorites, setFavorites, getRecipes}) {
 
   const [showDetails, setShowDetails] = useState(false);
   const [showRating, setShowRating] = useState(false);
@@ -44,7 +44,7 @@ export default function ListEntry ({menu, favorites, setFavorites}) {
           </div>
         </div>
         {showDetails && <MenuDetails closeModal={() => setShowDetails(false)} item={currentMenu} ratingCount={ratingCount} setFavorites={setFavorites}/>}
-        {showRating && <Ratings closeModal={() => setShowRating(false)} item={currentMenu} updateCurrentMenu={updateCurrentMenu}/>}
+        {showRating && <Ratings closeModal={() => setShowRating(false)} item={currentMenu} updateCurrentMenu={updateCurrentMenu} getRecipes={getRecipes}/>}
       </div>
       <div className='menu-buttons'>
         <span onClick={() => setShowRating(true)}>Ratings</span>
