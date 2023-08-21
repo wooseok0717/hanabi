@@ -39,6 +39,9 @@ export default function RatingModal ({item, closeModal, totalStars=5, getReviews
         localStorage.setItem(item.name+' review_id', data.id);
         localStorage.setItem(item.name+' rating', rating);
         localStorage.setItem(item.name+' review', reviewInput);
+        let myReviews = JSON.parse(localStorage.myReviews);
+        myReviews[data.id] = item.id;
+        localStorage.setItem('myReviews',JSON.stringify(myReviews));
         getReviews();
         closeModal();
         getRecipes();

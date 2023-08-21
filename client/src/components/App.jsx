@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from './Header.jsx';
 import AllergyModal from './AllergyModal.jsx';
 import MenuList from './MenuList.jsx';
@@ -6,6 +6,7 @@ import MenuHelper from './MenuHelper.jsx';
 import SearchModal from './SearchModal.jsx';
 import Favorites from './Favorites.jsx';
 import AppInstruction from './AppInstruction.jsx';
+import axios from 'axios';
 
 export default function App() {
 
@@ -20,6 +21,27 @@ export default function App() {
 
   if (localStorage.favorites === undefined) {
     localStorage.setItem('favorites', JSON.stringify([]));
+  }
+
+  if (localStorage.myReviews === undefined) {
+    localStorage.setItem('myReviews', JSON.stringify({}));
+  } else {
+    let temp = JSON.parse(localStorage.myReviews);
+    Object.keys(temp).forEach(x => {
+      axios.get(`/api/getReview/?id=${x}`)
+      .then(({data}) => {
+        if (!data.length) {
+          axios.get(`/api/recipe/?id=${temp[x]}`)
+          .then(({data}) => {
+            localStorage.removeItem(data.name+' review_id');
+            localStorage.removeItem(data.name+' rating');
+            localStorage.removeItem(data.name+' review');
+            delete temp[x];
+            localStorage.setItem('myReviews', JSON.stringify(temp));
+          });
+        }
+      });
+    });
   }
 
   const [allergies, setAllergies] = useState(false);

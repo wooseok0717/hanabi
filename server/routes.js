@@ -35,4 +35,6 @@ router.put('/review/report', controllers.updateReport);
 
 router.put('/favorite', controllers.updateFavorite);
 
+router.get('/getReview', controllers.getReview);
+
 module.exports = router;

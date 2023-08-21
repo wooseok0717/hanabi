@@ -66,5 +66,9 @@ module.exports = {
   updateFavorite: (req, res) => {
     axios.put(`${baseURL}/api/favorite/?id=${req.query.id}&edit=${req.query.edit}`)
     .then(({data}) => res.send(data));
+  },
+  getReview: (req, res) => {
+    axios.get(`${baseURL}/api/getReview/?id=${req.query.id}`)
+    .then(({data}) => res.send(data));
   }
 }
