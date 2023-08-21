@@ -47,7 +47,7 @@ export default function ListEntry ({menu, favorites, setFavorites, getRecipes}) 
         {showRating && <Ratings closeModal={() => setShowRating(false)} item={currentMenu} updateCurrentMenu={updateCurrentMenu} getRecipes={getRecipes}/>}
       </div>
       <div className='menu-buttons'>
-        <span onClick={() => setShowRating(true)}>Ratings</span>
+        <span onClick={() => setShowRating(true)}>Reviews</span>
         <span onClick={() => setShowDetails(true)}>Details</span>
       </div>
     </div>

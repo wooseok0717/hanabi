@@ -3,6 +3,7 @@ import {capitalize, getAverageRating,getRatingCount} from './helperfn';
 import SpicyLevel from './SpicyLevel.jsx';
 import StarRating from './StarRating.jsx';
 import MenuHelper from './MenuHelper.jsx';
+import Ratings from './Ratings.jsx';
 import CloudinaryImageUpload from './CloudinaryImageUpload.jsx';
 import x from '../../dist/assets/x.png';
 import axios from 'axios';
@@ -16,6 +17,7 @@ export default function MenuDetails ({closeModal, item, ratingCount, setFavorite
   const [displayHelper, setDisplayHelper] = useState(false);
   const [imgModal, setImgModal] = useState(false);
   const [favorite, setFavorite] = useState(JSON.parse(localStorage.favorites).includes(item.id));
+  const [showRating, setShowRating] = useState(false);
 
   const handleFavorite = () => {
     let currentStorage = new Set(JSON.parse(localStorage.favorites));
@@ -75,6 +77,10 @@ export default function MenuDetails ({closeModal, item, ratingCount, setFavorite
             <button className='question-icon' onClick={() => setDisplayHelper(true)}>?</button>
             {displayHelper && <MenuHelper closeModal={() => setDisplayHelper(false)}/>}
           </div>
+          <div className='ratings-review'>
+            <span className='button-like-span' onClick={() => setShowRating(true)}>Ratings & Review</span>
+          </div>
+          {showRating && <Ratings closeModal={() => setShowRating(false)} item={item} updateCurrentMenu={updateCurrentMenu} getRecipes={getRecipes}/>}
           <div>
             {item.price ? (<>{'$' + item.price}</>) : 'Market Price'}
           </div>

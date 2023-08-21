@@ -33,7 +33,7 @@ export default function Ratings({closeModal, item, updateCurrentMenu, getRecipes
         <div className='modal-body'>
           {reviewList.length ? reviewList.map(review => (
             <ReviewEntry review={review} key={review.id} getReviews={getReviews}/>
-          )) : 'THERE ARE NO REVIEW WRITEN FOR THIS MENU'}
+          )) : 'There are No review written for this menu'}
           {ratingModal && <RatingModal item={item} closeModal={() => setRatingModal(false)} getReviews={getReviews} getRecipes={getRecipes}/>}
         </div>
         <div className='modal-footer'>
