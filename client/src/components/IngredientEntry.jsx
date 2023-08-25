@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {capitalize} from './helperfn.js';
 
 export default function IngredientEntry ({item, selectedList, setSelectedList}) {
 
@@ -24,7 +25,7 @@ export default function IngredientEntry ({item, selectedList, setSelectedList}) 
 
   return (
     <div className={selected ? 'i-entry e-selected': 'i-entry'} onClick={handleClick}>
-      {item}
+      {capitalize(item)}
     </div>
   )
 }

@@ -5,18 +5,23 @@ import IngredientEntry from './IngredientEntry.jsx';
 export default function AllergyModal ({closeModal}) {
 
   const storageList = [];
+
+  const [ingredients, setIngredients] = useState([]);
+  const [selectedList, setSelectedList] = useState(storageList);
+
+  const fetchIngredient = () => {
+    axios.get('/api/ingredients')
+    .then(({data}) => setIngredients(data.map(x => x.name)))
+  }
+
   useEffect(() => {
     for (let key in JSON.parse(localStorage.allergies)) {
       storageList.push(key);
     }
   },[]);
 
-  const [ingredients, setIngredients] = useState([]);
-  const [selectedList, setSelectedList] = useState(storageList);
-
   useEffect(() => {
-    axios.get('/api/ingredients')
-    .then(({data}) => setIngredients(data.map(x => x.name)));
+    fetchIngredient();
   },[])
 
   return (

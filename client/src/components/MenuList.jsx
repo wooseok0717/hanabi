@@ -25,7 +25,6 @@ export default function MenuList ({ayce, favorites, setFavorites}) {
 
   return (
     <>
-      {(currentType === '') && <SortingSelector currentSort={currentSort} setCurrentSort={setCurrentSort}/>}
       <div>
         {types.map(t => (<TypeList key={t.id} type={t} currentType={currentType} setCurrentType={setCurrentType} favorites={favorites} setFavorites={setFavorites} currentSort={currentSort} setCurrentSort={setCurrentSort}/>))}
       </div>
