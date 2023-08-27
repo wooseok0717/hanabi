@@ -4,7 +4,6 @@ import SpicyLevel from './SpicyLevel.jsx';
 import StarRating from './StarRating.jsx';
 import MenuDetails from './MenuDetails.jsx';
 import Ratings from './Ratings.jsx';
-import {getAverageRating, getRatingCount } from './helperfn';
 import axios from 'axios';
 
 export default function ListEntry ({menu, favorites, setFavorites, getRecipes}) {
@@ -12,13 +11,6 @@ export default function ListEntry ({menu, favorites, setFavorites, getRecipes}) 
   const [showDetails, setShowDetails] = useState(false);
   const [showRating, setShowRating] = useState(false);
   const [currentMenu, setCurrentMenu] = useState(menu);
-  const [rating, setRating] = useState(0);
-  const [ratingCount, setRatingCount] = useState(0);
-
-  useEffect(() => {
-    setRating(getAverageRating(currentMenu.ratings));
-    setRatingCount(getRatingCount(currentMenu.ratings));
-  },[currentMenu]);
 
   const updateCurrentMenu = () => {
     axios.get(`api/recipe/?id=${menu.id}`)
@@ -43,7 +35,7 @@ export default function ListEntry ({menu, favorites, setFavorites, getRecipes}) 
             {currentMenu.alacarte && <div className='a-icon icon'>A</div>}
           </div>
         </div>
-        {showDetails && <MenuDetails closeModal={() => setShowDetails(false)} item={currentMenu} ratingCount={ratingCount} setFavorites={setFavorites} getRecipes={getRecipes} updateCurrentMenu={updateCurrentMenu}/>}
+        {showDetails && <MenuDetails closeModal={() => setShowDetails(false)} item={currentMenu} setFavorites={setFavorites} getRecipes={getRecipes} updateCurrentMenu={updateCurrentMenu}/>}
         {showRating && <Ratings closeModal={() => setShowRating(false)} item={currentMenu} updateCurrentMenu={updateCurrentMenu} getRecipes={getRecipes}/>}
       </div>
       <div className='menu-buttons'>

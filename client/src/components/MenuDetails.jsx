@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {capitalize, getAverageRating,getRatingCount} from './helperfn';
+import {capitalize} from './helperfn';
 import SpicyLevel from './SpicyLevel.jsx';
 import StarRating from './StarRating.jsx';
 import MenuHelper from './MenuHelper.jsx';
@@ -8,7 +8,7 @@ import CloudinaryImageUpload from './CloudinaryImageUpload.jsx';
 import x from '../../dist/assets/x.png';
 import axios from 'axios';
 
-export default function MenuDetails ({closeModal, item, ratingCount, setFavorites, getRecipes, updateCurrentMenu}) {
+export default function MenuDetails ({closeModal, item, setFavorites, getRecipes, updateCurrentMenu}) {
 
   const [allergies, setAllergies] = useState([]);
   const [filteredInside, setFilteredInside] = useState([]);
