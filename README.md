@@ -1,13 +1,5 @@
 <h1 align="center">Hanabi Sushi Online Menu</h1>
-
-<h1 align="center">
-  <br>
-    <img height="400" src="./client/dist/assets/logo.png">
-    <h3 align="center">
-        Mobile Menu for Hanabi Sushi Designed by Wooseok Jang
-      <br>
-    </h3>
-</h1>
+<h3 align="center">Mobile Menu for Hanabi Sushi Designed by Wooseok Jang</h3>
 
 <h3>Excalidraw design of my application</h3>
 https://excalidraw.com/#room=b1525fb6d8294cb2a369,TCNXX2A_E6fLPWzEAX2n1g
