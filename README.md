@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <br>
-    <img height="400" src="https://github.com/wooseok0717/hanabi/assets/53969430/dcd2c3ab-ff75-4f8e-9e64-ca033601362e">
+    <img height="400" src="./client/dist/assets/logo.png">
     <h3 align="center">
         Mobile Menu for Hanabi Sushi Designed by Wooseok Jang
       <br>
@@ -17,7 +17,7 @@ https://excalidraw.com/#room=b1525fb6d8294cb2a369,TCNXX2A_E6fLPWzEAX2n1g
 http://hanabimenu.com/
 
 <h3>QR Code:</h3>
-<img height="150" src="https://github.com/wooseok0717/hanabi/assets/53969430/dc553212-015e-4a44-bbb3-6250067b6d81">
+<img height="150" src="./assets/hanabi-qr.png">
 
 <h2>Features</h2>
 
@@ -25,7 +25,6 @@ http://hanabimenu.com/
   <summary>
     <h3>Instructions</h3>
   </summary>
-  <img height="350" src="">
   <ul>
     <li>Will only appear on first visit or on click of instruction button.</li>
     <li>Contains all instructions for user to use the app efficiently.</li>
@@ -36,7 +35,7 @@ http://hanabimenu.com/
 
 <details>
   <summary><h3>Select Allergies</h3></summary>
-  <img height="350" src="https://github.com/wooseok0717/hanabi/assets/53969430/d0e1cb8c-bb79-45ab-86d0-ef5a98d9d19d">
+  <img height="350" src="./assets/allergy-de.gif">
   <ul>
     <li>Displays all ingredient in the database.</li>
     <li>User may select them to add to their allergy list.</li>
@@ -49,7 +48,7 @@ http://hanabimenu.com/
   <summary>
     <h3>Search</h3>
   </summary>
-  <img height="350" src="https://github.com/wooseok0717/hanabi/assets/53969430/d4d0a24b-b8ef-4c13-99ce-9be0f4ee575e">
+  <img height="350" src="./assets/search-de.gif">
   <ul>
     <li>User can search the data base with an input</li>
     <li>Search input will search the DB that matches/contains input string in name, ingredients or keywords of the recipe.</li>
@@ -61,7 +60,7 @@ http://hanabimenu.com/
   <summary>
     <h3>Favorites</h3>
   </summary>
-  <img height="350" src="https://github.com/wooseok0717/hanabi/assets/53969430/c5acfaa6-0ea4-4eda-a99a-91ca16dcf5e0">
+  <img height="350" src="./assets/favorites-d.gif">
   <ul>
     <li>User may add menus to their favorite</li>
     <li>User will able to see the favorites render in favorites list.</li>
@@ -73,7 +72,7 @@ http://hanabimenu.com/
   <summary>
     <h3>Helper for icons</h3>
   </summary>
-  <img height="350" src="https://github.com/wooseok0717/hanabi/assets/53969430/615f731c-914f-461b-8358-02603ed748d8">
+  <img height="350" src="./assets/icon-d.gif">
   <ul>
     <li>This component displays icon and it's description.</li>
     <li>User can see what icons are meant.</li>
@@ -84,7 +83,7 @@ http://hanabimenu.com/
   <summary>
     <h3>All you can eat selection.</h3>
   </summary>
-  <img height="350" src="https://github.com/wooseok0717/hanabi/assets/53969430/29d08e6e-b567-4c45-82dd-5d5800773469">
+  <img height="350" src="./assets/ayce-d.gif">
   <ul>
     <li>User can select either AYCE(all you can eat) or A La Carte.</li>
     <li>Each selection will change the way of displaying menu list.</li>
@@ -95,7 +94,7 @@ http://hanabimenu.com/
   <summary>
     <h3>Type displays</h3>
   </summary>
-  <img height="350" src="https://github.com/wooseok0717/hanabi/assets/53969430/79b8f479-72f8-4e07-a462-4096c0eff00b">
+  <img height="350" src="./assets/listdisplay-d.gif">
   <ul>
     <li>User will see all types of menu render on their screen.</li>
     <li>User can click on type and it will show all menus that is associated with the menu type.</li>
@@ -108,7 +107,7 @@ http://hanabimenu.com/
   <summary>
     <h3>Sorting</h3>
   </summary>
-  <img height="350" src="https://github.com/wooseok0717/hanabi/assets/53969430/2bf83f69-b663-418e-a5a7-a96ad35ce27f">
+  <img height="350" src="./assets/sorting-d.gif">
   <ul>
     <li>User can select sorting method.</li>
     <li>
@@ -166,7 +165,7 @@ http://hanabimenu.com/
   <summary>
     <h3>Menu Details</h3>
   </summary>
-  <img height="350" src="https://github.com/wooseok0717/hanabi/assets/53969430/cf563517-cd20-4a4f-93c2-b569793ed600">
+  <img height="350" src="./assets/display-d.gif">
   <ul>
     <li>It will display all details to the recipe.</li>
     <li>It also shows images for the menu.</li>
