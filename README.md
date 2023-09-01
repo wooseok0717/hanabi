@@ -25,7 +25,7 @@ http://hanabimenu.com/
   <summary>
     <h3>Instructions</h3>
   </summary>
-  <img height="350" src="https://github.com/wooseok0717/hanabi/assets/53969430/2534d02a-dc73-4e99-bd51-7110f29a8fdf">
+  <img height="350" src="">
   <ul>
     <li>Will only appear on first visit or on click of instruction button.</li>
     <li>Contains all instructions for user to use the app efficiently.</li>
@@ -152,7 +152,7 @@ http://hanabimenu.com/
   <summary>
     <h3>Reviews</h3>
   </summary>
-  <img height="350" src="https://github.com/wooseok0717/hanabi/assets/53969430/b0853255-4b2d-4c00-825a-e03c0bfb051e">
+  <img height="350" src="./assets/rating-d.gif">
   <ul>
     <li>Users can see all the reviews that has been made.</li>
     <li>Users can also write their own review with an rating.</li>
@@ -182,5 +182,3 @@ http://hanabimenu.com/
     </li>
   </ul>
 </details>
-
-
