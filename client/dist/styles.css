@@ -377,3 +377,16 @@ body {
   margin: 2rem;
   font-size: 3rem;
 }
+
+.insta-logo {
+  width: 5rem;
+}
+
+.insta-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #cdcdcd;
+  text-decoration: none;
+}

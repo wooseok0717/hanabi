@@ -6,6 +6,7 @@ import MenuHelper from './MenuHelper.jsx';
 import SearchModal from './SearchModal.jsx';
 import Favorites from './Favorites.jsx';
 import AppInstruction from './AppInstruction.jsx';
+import instaLogo from '../../dist/assets/instalogo.png';
 import axios from 'axios';
 
 export default function App() {
@@ -71,6 +72,7 @@ export default function App() {
 
       </div>
       <Header />
+      <a href={'https://instagram.com/hanabii_sushii?igshid=MzRIODBiNWFIZA=='} className='insta-link' target="_blank"><img src={instaLogo} className='insta-logo'/>Follow us on Instagram!!</a>
       <div className='price-tag'>
         <div>Kid's Lunch $16.95</div>
         <div>Lunch $26.95</div>
