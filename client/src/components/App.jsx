@@ -72,7 +72,11 @@ export default function App() {
       </div>
       <Header />
       <div className='price-tag'>
+        <div>Kid's Lunch $16.95</div>
         <div>Lunch $26.95</div>
+      </div>
+      <div className='price-tag'>
+        <div>Kid's Dinner $21.95</div>
         <div>Dinner $33.95</div>
       </div>
 

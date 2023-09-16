@@ -22,6 +22,7 @@ body {
   border-bottom: 2px solid #cdcdcd;
   border-top: 2px solid #cdcdcd;
   padding: 1rem;
+  margin-top: 2rem;
 }
 
 .modal {
@@ -269,7 +270,7 @@ body {
 .price-tag {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .current-selected {
@@ -362,4 +363,17 @@ body {
 .ratings-review {
   margin: 2rem 0;
   padding: 0 1rem;
+}
+
+.lunch-list {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 3rem;
+}
+
+.lunch-title {
+  text-align: center;
+  margin: 2rem;
+  font-size: 3rem;
 }
