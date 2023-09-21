@@ -6,6 +6,7 @@ import MenuHelper from './MenuHelper.jsx';
 import SearchModal from './SearchModal.jsx';
 import Favorites from './Favorites.jsx';
 import AppInstruction from './AppInstruction.jsx';
+import MenuCopy from './MenuCopy.jsx'
 import instaLogo from '../../dist/assets/instalogo.png';
 import axios from 'axios';
 
@@ -59,15 +60,18 @@ export default function App() {
   const [appInstruction, setAppInstruction] = useState(localStorage.appInstruction);
   const [ayce, setAyce] = useState(true);
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.favorites));
+  const [orgMenu, setOrgMenu] = useState(false);
 
   return (
 
     <>
       {/*-----IF USER HAVEN'T READ THE INSTRUCTION SHOW MODAL OF INSTRUCTION TO THE APP-----*/}
       {!appInstruction && <AppInstruction closeModal={() => setAppInstruction(true)}/>}
+      {orgMenu && <MenuCopy closeModal={() => setOrgMenu(false)} />}
       <div className='instruction-btn-conatiner'>
 
         {/*------------BUTTON FOR USER TO INTERACT TO READ THE INSTRUCTION AGAIN------------*/}
+        <span className='button-like-span' onClick={() => setOrgMenu(true)}>Original Menu</span>
         <span className='button-like-span' onClick={() => setAppInstruction(false)}>Instructions</span>
 
       </div>
